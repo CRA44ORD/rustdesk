@@ -281,6 +281,13 @@ jobs:
         if: ${{ matrix.job.arch == 'aarch64' }}
         shell: bash
         run: echo "SODIUM_LIB_DIR=$VCPKG_ROOT/installed/${{ matrix.job.vcpkg-triplet }}/lib" >> "$GITHUB_ENV"
+      - name: StateZero branding (server+key+appname)
+        shell: bash
+        run: |
+          sed -i 's#pub const RENDEZVOUS_SERVERS: &[&str] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[\&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
+          sed -i 's#pub const RS_PUB_KEY: &str = ".*";#pub const RS_PUB_KEY: \&str = "mbq7tvEAOL0Jn8+Jrl8ytQhIVod6IgfGwZdY7ut8oqw=";#' libs/hbb_common/src/config.rs
+          sed -i 's#RwLock::new("RustDesk".to_owned())#RwLock::new("StateZeroRDS".to_owned())#' libs/hbb_common/src/config.rs
+          grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY\|APP_NAME.*StateZero' libs/hbb_common/src/config.rs | head -5
 
       - name: Build rustdesk
         run: |
@@ -543,6 +550,13 @@ jobs:
           fi
           head -n 100 "${VCPKG_ROOT}/buildtrees/ffmpeg/build-${{ matrix.job.vcpkg-triplet }}-rel-out.log" || true
         shell: bash
+      - name: StateZero branding (server+key+appname)
+        shell: bash
+        run: |
+          sed -i 's#pub const RENDEZVOUS_SERVERS: &[&str] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[\&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
+          sed -i 's#pub const RS_PUB_KEY: &str = ".*";#pub const RS_PUB_KEY: \&str = "mbq7tvEAOL0Jn8+Jrl8ytQhIVod6IgfGwZdY7ut8oqw=";#' libs/hbb_common/src/config.rs
+          sed -i 's#RwLock::new("RustDesk".to_owned())#RwLock::new("StateZeroRDS".to_owned())#' libs/hbb_common/src/config.rs
+          grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY\|APP_NAME.*StateZero' libs/hbb_common/src/config.rs | head -5
 
       - name: Build rustdesk
         id: build
@@ -717,6 +731,13 @@ jobs:
         with:
           name: liblibrustdesk.a
           path: target/aarch64-apple-ios/release/liblibrustdesk.a
+      - name: StateZero branding (server+key+appname)
+        shell: bash
+        run: |
+          sed -i 's#pub const RENDEZVOUS_SERVERS: &[&str] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[\&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
+          sed -i 's#pub const RS_PUB_KEY: &str = ".*";#pub const RS_PUB_KEY: \&str = "mbq7tvEAOL0Jn8+Jrl8ytQhIVod6IgfGwZdY7ut8oqw=";#' libs/hbb_common/src/config.rs
+          sed -i 's#RwLock::new("RustDesk".to_owned())#RwLock::new("StateZeroRDS".to_owned())#' libs/hbb_common/src/config.rs
+          grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY\|APP_NAME.*StateZero' libs/hbb_common/src/config.rs | head -5
 
       - name: Build rustdesk
         shell: bash
@@ -907,6 +928,13 @@ jobs:
           rustup default
           cargo -V
           rustc -V
+      - name: StateZero branding (server+key+appname)
+        shell: bash
+        run: |
+          sed -i 's#pub const RENDEZVOUS_SERVERS: &[&str] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[\&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
+          sed -i 's#pub const RS_PUB_KEY: &str = ".*";#pub const RS_PUB_KEY: \&str = "mbq7tvEAOL0Jn8+Jrl8ytQhIVod6IgfGwZdY7ut8oqw=";#' libs/hbb_common/src/config.rs
+          sed -i 's#RwLock::new("RustDesk".to_owned())#RwLock::new("StateZeroRDS".to_owned())#' libs/hbb_common/src/config.rs
+          grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY\|APP_NAME.*StateZero' libs/hbb_common/src/config.rs | head -5
 
       - name: Build rustdesk
         run: |
@@ -1226,6 +1254,13 @@ jobs:
         with:
           name: librustdesk.so.${{ matrix.job.target }}
           path: ./target/${{ matrix.job.target }}/release/liblibrustdesk.so
+      - name: StateZero branding (server+key+appname)
+        shell: bash
+        run: |
+          sed -i 's#pub const RENDEZVOUS_SERVERS: &[&str] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[\&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
+          sed -i 's#pub const RS_PUB_KEY: &str = ".*";#pub const RS_PUB_KEY: \&str = "mbq7tvEAOL0Jn8+Jrl8ytQhIVod6IgfGwZdY7ut8oqw=";#' libs/hbb_common/src/config.rs
+          sed -i 's#RwLock::new("RustDesk".to_owned())#RwLock::new("StateZeroRDS".to_owned())#' libs/hbb_common/src/config.rs
+          grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY\|APP_NAME.*StateZero' libs/hbb_common/src/config.rs | head -5
 
       - name: Build rustdesk
         shell: bash
@@ -1436,6 +1471,13 @@ jobs:
         with:
           name: librustdesk.so.i686-linux-android
           path: ./flutter/android/app/src/main/jniLibs/x86
+      - name: StateZero branding (server+key+appname)
+        shell: bash
+        run: |
+          sed -i 's#pub const RENDEZVOUS_SERVERS: &[&str] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[\&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
+          sed -i 's#pub const RS_PUB_KEY: &str = ".*";#pub const RS_PUB_KEY: \&str = "mbq7tvEAOL0Jn8+Jrl8ytQhIVod6IgfGwZdY7ut8oqw=";#' libs/hbb_common/src/config.rs
+          sed -i 's#RwLock::new("RustDesk".to_owned())#RwLock::new("StateZeroRDS".to_owned())#' libs/hbb_common/src/config.rs
+          grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY\|APP_NAME.*StateZero' libs/hbb_common/src/config.rs | head -5
 
       - name: Build rustdesk
         shell: bash

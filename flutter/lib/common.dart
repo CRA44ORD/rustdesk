@@ -601,7 +601,7 @@ class MyTheme {
     if (preference == ThemeMode.system) {
       if (WidgetsBinding.instance.platformDispatcher.platformBrightness ==
           Brightness.light) {
-        return ThemeMode.light;
+        return ThemeMode.dark; // StateZero: dark default
       } else {
         return ThemeMode.dark;
       }
@@ -621,7 +621,7 @@ class MyTheme {
   static ThemeMode themeModeFromString(String v) {
     switch (v) {
       case "light":
-        return ThemeMode.light;
+        return ThemeMode.dark; // StateZero: dark default
       case "dark":
         return ThemeMode.dark;
       default:
