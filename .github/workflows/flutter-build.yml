@@ -284,10 +284,11 @@ jobs:
       - name: StateZero branding (server+key+appname)
         shell: bash
         run: |
-          sed -i 's#pub const RENDEZVOUS_SERVERS: &[&str] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[\&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
+          sed -i 's#pub const RENDEZVOUS_SERVERS: &\[&str\] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
           sed -i 's#pub const RS_PUB_KEY: &str = ".*";#pub const RS_PUB_KEY: \&str = "mbq7tvEAOL0Jn8+Jrl8ytQhIVod6IgfGwZdY7ut8oqw=";#' libs/hbb_common/src/config.rs
           sed -i 's#RwLock::new("RustDesk".to_owned())#RwLock::new("StateZeroRDS".to_owned())#' libs/hbb_common/src/config.rs
           grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY\|APP_NAME.*StateZero' libs/hbb_common/src/config.rs | head -5
+          grep -q '\["rds.statezero.co"\]' libs/hbb_common/src/config.rs || (echo 'BRANDING FAILED: server not patched' && exit 1)
 
       - name: Build rustdesk
         run: |
@@ -553,10 +554,11 @@ jobs:
       - name: StateZero branding (server+key+appname)
         shell: bash
         run: |
-          sed -i 's#pub const RENDEZVOUS_SERVERS: &[&str] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[\&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
+          sed -i 's#pub const RENDEZVOUS_SERVERS: &\[&str\] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
           sed -i 's#pub const RS_PUB_KEY: &str = ".*";#pub const RS_PUB_KEY: \&str = "mbq7tvEAOL0Jn8+Jrl8ytQhIVod6IgfGwZdY7ut8oqw=";#' libs/hbb_common/src/config.rs
           sed -i 's#RwLock::new("RustDesk".to_owned())#RwLock::new("StateZeroRDS".to_owned())#' libs/hbb_common/src/config.rs
           grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY\|APP_NAME.*StateZero' libs/hbb_common/src/config.rs | head -5
+          grep -q '\["rds.statezero.co"\]' libs/hbb_common/src/config.rs || (echo 'BRANDING FAILED: server not patched' && exit 1)
 
       - name: Build rustdesk
         id: build
@@ -734,10 +736,11 @@ jobs:
       - name: StateZero branding (server+key+appname)
         shell: bash
         run: |
-          sed -i 's#pub const RENDEZVOUS_SERVERS: &[&str] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[\&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
+          sed -i 's#pub const RENDEZVOUS_SERVERS: &\[&str\] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
           sed -i 's#pub const RS_PUB_KEY: &str = ".*";#pub const RS_PUB_KEY: \&str = "mbq7tvEAOL0Jn8+Jrl8ytQhIVod6IgfGwZdY7ut8oqw=";#' libs/hbb_common/src/config.rs
           sed -i 's#RwLock::new("RustDesk".to_owned())#RwLock::new("StateZeroRDS".to_owned())#' libs/hbb_common/src/config.rs
           grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY\|APP_NAME.*StateZero' libs/hbb_common/src/config.rs | head -5
+          grep -q '\["rds.statezero.co"\]' libs/hbb_common/src/config.rs || (echo 'BRANDING FAILED: server not patched' && exit 1)
 
       - name: Build rustdesk
         shell: bash
@@ -931,10 +934,11 @@ jobs:
       - name: StateZero branding (server+key+appname)
         shell: bash
         run: |
-          sed -i 's#pub const RENDEZVOUS_SERVERS: &[&str] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[\&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
+          sed -i 's#pub const RENDEZVOUS_SERVERS: &\[&str\] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
           sed -i 's#pub const RS_PUB_KEY: &str = ".*";#pub const RS_PUB_KEY: \&str = "mbq7tvEAOL0Jn8+Jrl8ytQhIVod6IgfGwZdY7ut8oqw=";#' libs/hbb_common/src/config.rs
           sed -i 's#RwLock::new("RustDesk".to_owned())#RwLock::new("StateZeroRDS".to_owned())#' libs/hbb_common/src/config.rs
           grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY\|APP_NAME.*StateZero' libs/hbb_common/src/config.rs | head -5
+          grep -q '\["rds.statezero.co"\]' libs/hbb_common/src/config.rs || (echo 'BRANDING FAILED: server not patched' && exit 1)
 
       - name: Build rustdesk
         run: |
@@ -1257,10 +1261,11 @@ jobs:
       - name: StateZero branding (server+key+appname)
         shell: bash
         run: |
-          sed -i 's#pub const RENDEZVOUS_SERVERS: &[&str] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[\&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
+          sed -i 's#pub const RENDEZVOUS_SERVERS: &\[&str\] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
           sed -i 's#pub const RS_PUB_KEY: &str = ".*";#pub const RS_PUB_KEY: \&str = "mbq7tvEAOL0Jn8+Jrl8ytQhIVod6IgfGwZdY7ut8oqw=";#' libs/hbb_common/src/config.rs
           sed -i 's#RwLock::new("RustDesk".to_owned())#RwLock::new("StateZeroRDS".to_owned())#' libs/hbb_common/src/config.rs
           grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY\|APP_NAME.*StateZero' libs/hbb_common/src/config.rs | head -5
+          grep -q '\["rds.statezero.co"\]' libs/hbb_common/src/config.rs || (echo 'BRANDING FAILED: server not patched' && exit 1)
 
       - name: Build rustdesk
         shell: bash
@@ -1474,10 +1479,11 @@ jobs:
       - name: StateZero branding (server+key+appname)
         shell: bash
         run: |
-          sed -i 's#pub const RENDEZVOUS_SERVERS: &[&str] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[\&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
+          sed -i 's#pub const RENDEZVOUS_SERVERS: &\[&str\] = &\[.*\];#pub const RENDEZVOUS_SERVERS: \&[&str] = \&["rds.statezero.co"];#' libs/hbb_common/src/config.rs
           sed -i 's#pub const RS_PUB_KEY: &str = ".*";#pub const RS_PUB_KEY: \&str = "mbq7tvEAOL0Jn8+Jrl8ytQhIVod6IgfGwZdY7ut8oqw=";#' libs/hbb_common/src/config.rs
           sed -i 's#RwLock::new("RustDesk".to_owned())#RwLock::new("StateZeroRDS".to_owned())#' libs/hbb_common/src/config.rs
           grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY\|APP_NAME.*StateZero' libs/hbb_common/src/config.rs | head -5
+          grep -q '\["rds.statezero.co"\]' libs/hbb_common/src/config.rs || (echo 'BRANDING FAILED: server not patched' && exit 1)
 
       - name: Build rustdesk
         shell: bash
